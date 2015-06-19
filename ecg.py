@@ -15,5 +15,6 @@ if __name__=="__main__":
     l,data = inp.read()
     if l:
       # Return the maximum of the absolute value of all samples in a fragment.
-      print audioop.max(data, 2)
+      outd=audioop.max(data, 2)
+      if outd>3800: print outd      
     time.sleep(.001)
