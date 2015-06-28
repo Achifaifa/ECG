@@ -10,11 +10,12 @@ if __name__=="__main__":
   inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
   inp.setperiodsize(160)
 
+  previous=0
   while True:
-    # Read data from device
     l,data = inp.read()
     if l:
-      # Return the maximum of the absolute value of all samples in a fragment.
       outd=audioop.max(data, 2)
-      if outd>3800: print outd      
+      if outd==0 and previous!=0:
+        print "beep"
+      previous=outd
     time.sleep(.001)
