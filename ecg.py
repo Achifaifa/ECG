@@ -10,12 +10,18 @@ if __name__=="__main__":
   inp.setformat(alsaaudio.PCM_FORMAT_S16_LE)
   inp.setperiodsize(160)
 
+  start=time.time()
+  beats=[start]
   previous=0
   while True:
-    l,data = inp.read()
+    l,data=inp.read()
     if l:
       outd=audioop.max(data, 2)
       if outd==0 and previous!=0:
-        print "beep"
+        now=time.time()
+        bpm=60/(now-beats[-1])
+        avg=60*len(beats)/(now-start)
+        print "beep (%i BPM; %i AVG) | %i" %(bpm, avg, len(beats))
+        beats.append(now)
       previous=outd
     time.sleep(.001)
