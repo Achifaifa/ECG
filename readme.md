@@ -8,6 +8,9 @@ Run this with the machine connected. Logs the maximum and minimum values of the 
 Adjust your microphone gain until the maximum reads between 3500 and 4000. It will be low enough not to hear much, but it probably avoids damage to the computer. The minimum does nothing but, just in case, it should read almost exactly the opposite.
 
 * ecg.py
-This program reads the signals from the machine and calculates current BPM, maximum, minimum and total average. 
+This program reads the signals from the machine and calculates current BPM, maximum, minimum and total average, and displays the information in a tkinter based window. 
 
-It displays the information in a tkinter based window. Once it's done it displays maximum, minimum and average and writes a file to disk containing the timestamp of every heartbeat registered so stats can be generated later.
+In another window shows the current user name and a countdown. When the countdown reaches zero, all the data (Name, stats, etc) is written to a text file.
+
+A third pop-up window contains the control buttons. "Start" starts the countdown, "Stop" stops the countdown and writes the data to file, and "Update" places the name in the form in the countdown screen
+
