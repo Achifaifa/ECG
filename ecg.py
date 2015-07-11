@@ -13,6 +13,7 @@ inp.setperiodsize(160)
 start=time.time()
 beats=[start]
 previous=0
+avg=0
 maxim=0
 minim=9001
 # Chrono window variables
@@ -45,21 +46,23 @@ def startf():
   chronostime=time.time()
 
 def stopf():
-  global countstarted
+  global countstarted, countdown, playername, avg, maxim, minim, beats
   countstarted=0
   print "stopping chrono"
-  # try:
-  #   filecounter=1
-  #   while 1:
-  #     if "out_ecg_%03i"%filecounter in os.listdir("./"):
-  #       filecounter+=1
-  #     else:
-  #       beats=[str(i) for i in beats]
-  #       with open("out_ecg_%03i"%filecounter,"w+") as outf:
-  #         outf.write("\n".join(beats))
-  #       break
-  # except NameError:
-  #   print "No stats generated. Sample list too short"
+  try:
+    filecounter=0
+    while 1:
+      if "out_ecg_%s_%03i"%(playername, filecounter) in os.listdir("./"):
+        filecounter+=1
+      else:
+        beatsp=[str(i) for i in beats]
+        with open("out_ecg_%s_%03i"%(playername, filecounter),"w+") as outf:
+          outf.write("%s\nAVG:%i\nMAX:%i\nMIN:%i\n---\n"%(playername, avg, maxim, minim))
+          outf.write("\n".join(beatsp))
+        break
+    countdown=[5,0]
+  except NameError:
+    print "No stats generated. Sample list too short"
 
 # Chrono window
 name=Tkinter.Label(counter, text=playername, font=smallfont)
