@@ -12,5 +12,4 @@ This program reads the signals from the machine and calculates current BPM, maxi
 
 In another window shows the current user name and a countdown. When the countdown reaches zero, all the data (Name, stats, etc) is written to a text file.
 
-A third pop-up window contains the control buttons. "Start" starts the countdown, "Stop" stops the countdown and writes the data to file, and "Update" places the name in the form in the countdown screen
-
+A third pop-up window contains the control buttons. "Start" starts the countdown, "Stop" resets the countdown and writes the data to file, and "Update" places the name in the form in the countdown screen

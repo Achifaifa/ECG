@@ -40,9 +40,11 @@ Tkinter.mainloop(1)
 
 #Chrono functions
 def startf():
-  global chronostime, countstarted
+  global beats, chronostime, countstarted, start
   print "starting chrono"
   countstarted=1
+  beats=beats[-10:]
+  start=beats[0]
   chronostime=time.time()
 
 def stopf():
