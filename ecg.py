@@ -32,9 +32,9 @@ counter.wm_title("Afraidifier - chrono")
 buttons=Tkinter.Toplevel()
 buttons.wm_title("BUTTONS!")
 # Define fonts
-bigfont=tkFont.Font(root=root, font=None, name=None, family='Sans', size=250, weight='bold')
+bigfont=tkFont.Font(root=root, font=None, name=None, family='Sans', size=275, weight='bold')
 chronofont=tkFont.Font(root=counter, font=None, name=None, family='Mono', size=250, weight='bold')
-smallfont=tkFont.Font(root=root, font=None, name=None, family='Mono', size=75, weight='bold')
+smallfont=tkFont.Font(root=root, font=None, name=None, family='Mono', size=100, weight='bold')
 # tkinter thing
 Tkinter.mainloop(1) 
 
